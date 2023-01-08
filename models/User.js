@@ -14,7 +14,17 @@ const userSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    username : {
+    batch : {
+        type : mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref : "Batch"
+    },
+    course : [{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref : "Course"
+    }],
+    username : {    
         type: String,
         required: true,
         unique: true,

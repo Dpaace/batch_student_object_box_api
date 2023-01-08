@@ -3,6 +3,8 @@ const express = require("express");
 const logger = require("./logger");
 const path = require("path");
 const user_routes = require("./routes/user-routes");
+const batch_routes = require("./routes/batch-routes");
+const course_routes = require("./routes/course-routes");
 const auth = require("./middleware/auth");
 const mongoose = require("mongoose");
 
@@ -38,6 +40,8 @@ app.get("^/$|/index(.html)?", (req, res) => {
 
 // 3. Router level middleware
 app.use("/users", user_routes);
+app.use("/batch", batch_routes);
+app.use("/course", course_routes);
 // app.use(auth.verifyUser);
 // app.use("/profile", profile_routes);
 
